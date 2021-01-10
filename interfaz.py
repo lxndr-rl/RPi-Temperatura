@@ -9,7 +9,6 @@ from os.path import isfile, join
 import random
 import RPi.GPIO as GPIO
 import dht11
-import time
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -63,8 +62,6 @@ class Root(Tk):
         def randImg(tipo):
             imagenesCacao = [f for f in listdir(f'./imagenes/{tipo}') if isfile(join(f'./imagenes/{tipo}', f))]
             return f'./imagenes/{tipo}/{imagenesCacao[random.randint(0,len(imagenesCacao)-1)]}'
-        cont = 1
-        acum = 0
         with open('recomendaciones.json') as recom_file: 
             recomendaciones = json.load(recom_file) 
         recom_file.close()
@@ -97,19 +94,17 @@ class Root(Tk):
         self.ph.configure(text=f"PH: {recomendaciones[self.n.get()]['ph']}")
 
         self.agua.configure(text=f"Agua: {recomendaciones[self.n.get()]['agua']}")
-
-        while cont<=10:
+        while True:
             instance = dht11.DHT11(pin = 14)
             result = instance.read()
             if result.is_valid():
-                acum += result.temperature
-                cont += 1
+                print(result.temperature)
+                temp = result.temperature
+                break
             else:
                 print(f"Error: {result}")
-            time.sleep(2)
-        temp = acum/cont
 
-        if(temp>recomendaciones[self.n.get()]['tempMin'] and temp<recomendaciones[self.n.get()]['tempMax']):
+        if(temp>=recomendaciones[self.n.get()]['tempMin'] and temp<=recomendaciones[self.n.get()]['tempMax']):
             estado = Image.open('./imagenes/ok.png')
             estado = estado.resize((30, 30), Image.ANTIALIAS)
             photoEstado = ImageTk.PhotoImage(estado)

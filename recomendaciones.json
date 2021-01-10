@@ -1,0 +1,22 @@
+{
+  "Naranja": {
+    "temperatura": "La temperatura ideal para el cultivo de naranja oscila entre los 23\u00b0C a 32 \u00b0C",
+    "problemas": "La temperatura mayor a los 32\u00b0C no es apta para el cultivo de naranja",
+    "humedad": "El rango adecuado de humedad relativa puede considerarse entre 40% y 70%.",
+    "suelo": "Los suelos recomendables son arcillosos y arenosos",
+    "ph": "PH del suelo: entre 6.0 a 6.5",
+    "agua": "Las necesidades h\u00eddricas de este cultivo oscilan entre 6000 y 7000 m3/ha.",
+    "tempMin": 23,
+    "tempMax": 32
+  },
+  "Cacao": {
+    "temperatura": "El cacao no soporta temperaturas bajas, tiene un l\u00edmite medio anual de temperatura los 21 \u00b0C a 25\u00b0C ",
+    "problemas": "El cacao es dif\u00edcil cultivar con una temperatura m\u00e1s baja de los 21\u00b0C.",
+    "humedad": "La humedad ambiente adecuada para el cacao es aquella que se mantiene entre 70% y 80%.",
+    "suelo": "requiere suelos ricos en materia org\u00e1nica, profundos, arcillosos y limosos",
+    "ph": "PH del suelo: entre 4.0 a 7 .0",
+    "agua": "Las necesidades de agua oscilan entre 1500 y 2500 mm en las zonas bajas m\u00e1s c\u00e1lidas y entre 1200 y 1500 mm en las zonas m\u00e1s frescas o los valles altos.\n**El cacao es muy sensible a la escasez del agua.",
+    "tempMin": 21,
+    "tempMax": 25
+  }
+}
